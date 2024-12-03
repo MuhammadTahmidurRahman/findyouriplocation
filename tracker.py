@@ -3,7 +3,7 @@ import requests
 
 def get_location_by_ip(ip):
     try:
-        # Using 'ipinfo.io' to fetch location information based on IP address
+
         url = f"http://ipinfo.io/{ip}/json"
         response = requests.get(url)
         data = response.json()
@@ -20,11 +20,10 @@ def get_location_by_ip(ip):
         print(f"Error: {e}")
 
 def get_ip_address():
-    # You can use the 'socket' module to get the local IP address or use an external service to get public IP
-    ip = requests.get('https://api.ipify.org').text  # Get public IP address
+  
+    ip = requests.get('https://api.ipify.org').text  
     return ip
 
-# Get the public IP address and find location
 ip = get_ip_address()
 print(f"Your public IP address: {ip}")
 get_location_by_ip(ip)
